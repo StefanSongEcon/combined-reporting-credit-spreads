@@ -1,8 +1,7 @@
 # Taxed Together: Combined Reporting and the Cost of Corporate Debt
 
 When a U.S. state switches to combined reporting, a corporate group is taxed on its consolidated income: shifting
-income to low-tax affiliates stops working, and losses in one affiliate offset profits in another. Do creditors see
-this as a tax on the firm or as insurance? This project measures how corporate bond spreads responded to the twelve
+income to low-tax affiliates stops working, and losses in one affiliate offset profits in another. How do creditors perceive the effect of this tax reform on corporate debt burden? How this tax reform then affect corporate's cost of debt? This project measures how corporate bond spreads responded to the twelve
 state adoptions between 2004 and 2018, using a stacked difference-in-differences design estimated with double
 machine learning.
 
@@ -29,7 +28,7 @@ machine learning.
    0.04 for the rest (difference t = 3.5). These are the firms that lose the most when intangible-income shifting is
    shut down.
 
-5. **Machine learning confirms the linear design.** Random forest, lasso and gradient boosting all land within 0.03 of
+5. **Machine learning aligns with the linear design.** Random forest, lasso and gradient boosting all land within 0.03 of
    the fixed-effects estimate, so the result does not depend on how controls enter.
 
 ![Event study](results/event_study.png)
