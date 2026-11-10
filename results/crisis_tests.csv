@@ -1,0 +1,8 @@
+spec,estimator,theta,se,n_units,n_treated,learners,t
+A. drop TX (2006 cohort),DML DR-DiD (auto),0.2012716324277582,0.07767718078662801,296,149,m:rf/l:rf,2.5911294718668105
+A. drop TX (2006 cohort),Stacked FE OLS (paper eq.5),0.13238124079642805,0.06429453826308845,296,149,,2.058981126122003
+B. post-2010 cohorts only,DML DR-DiD (auto),0.049672127801159274,0.07131374288574638,100,51,m:rf/l:rf,0.6965295298094267
+B. post-2010 cohorts only,Stacked FE OLS (paper eq.5),-0.038471803320779915,0.11473074426522094,100,51,,-0.3353225289975053
+C. all cohorts + pre-spread control,DML DR-DiD (auto),0.1295415835251294,0.071986656192581,587,402,m:rf/l:gbm,1.7995221666995562
+C. all cohorts + pre-spread control,Stacked FE OLS (paper eq.5),0.11453715892444667,0.058115211285990044,587,402,,1.970863675618407
+C. all cohorts + pre-spread control,"Stacked FE OLS, cohort x year x pre-spread x n_states FE",0.1448950864057482,0.05252443381737648,587,402,,2.7586225281273387

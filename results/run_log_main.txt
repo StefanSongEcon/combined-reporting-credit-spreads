@@ -1,0 +1,115 @@
+[      1s] panel 11,652 firm-years; with exposure 10,814; exposure firm-years 23,948 (+3,967 filled)
+[      1s] exposure source shares: {'10k_ops': 0.91, '10k_table': 0.082, '10k_all': 0.005, 'hq_only': 0.003}
+[      1s] == MAIN: enactment timing, frozen pre-period 10-K exposure, log spread ==
+[      2s] cohort counts:
+D       controls  treated
+cohort                   
+2004        31.0     24.0
+2006        38.0    253.0
+2007        21.0     43.0
+2008        21.0     19.0
+2009        25.0     12.0
+2011         8.0     29.0
+2014        15.0     19.0
+2015        12.0      NaN
+2018        14.0      3.0
+[      2s] main           baseline                           OLS long-diff, no X    theta= 0.1426 se=0.0588 t= 2.43 n=587
+[      2s] main           baseline                           OLS long-diff, X       theta= 0.0934 se=0.0532 t= 1.76 n=587
+[     32s] main           baseline                           DML DR-DiD (auto)      theta= 0.1271 se=0.0780 t= 1.63 n=587
+[     37s] main           baseline                           DML DR-DiD (gbm)       theta= 0.1048 se=0.1340 t= 0.78 n=587
+[     60s] main           baseline                           DML DR-DiD (rf)        theta= 0.1324 se=0.0767 t= 1.73 n=587
+[    119s] main           baseline                           DML DR-DiD (lasso)     theta= 0.1303 se=0.1300 t= 1.00 n=587
+[    121s] main           baseline                           DML DR-DiD (logit)     theta= 0.0477 se=0.1199 t= 0.40 n=587
+[    127s] main           baseline                           DML PLR dose T (auto)  theta=-0.0152 se=0.0205 t=-0.74 n=587
+[    134s] main           baseline                           DML PLR geo dose A (auto) theta=-0.0414 se=0.1312 t=-0.32 n=587
+[    134s] propensity quantiles by group:
+   count   mean    std    min     5%    25%    50%    75%    95%    max
+D                                                                      
+0  185.0  0.503  0.206  0.168  0.237  0.340  0.471  0.661  0.887  0.961
+1  402.0  0.797  0.187  0.200  0.415  0.693  0.863  0.947  0.988  0.998
+[    134s] balance:
+        covariate  smd_raw  smd_weighted
+         pre_size    0.166         0.219
+     pre_book_lev   -0.060        -0.111
+      pre_mkt_lev    0.063         0.023
+          pre_mtb   -0.215        -0.214
+          pre_roa   -0.101        -0.090
+      pre_cash_at   -0.188        -0.244
+        pre_rd_at   -0.029         0.100
+      pre_capx_at    0.294         0.081
+         pre_tang    0.261        -0.087
+         pre_loss   -0.053         0.049
+ pre_sales_growth    0.412         0.193
+          pre_age   -0.141         0.212
+      pre_roa_vol    0.000         0.017
+     pre_maturity    0.278         0.303
+  pre_log_n_bonds   -0.020         0.358
+   pre_log_volume    0.201         0.397
+  pre_nw_tax_rate   -0.056         0.030
+     pre_nw_unemp   -0.083         0.123
+pre_nw_gdp_growth    0.674         0.098
+pre_nw_pre1990_cr   -0.095        -0.047
+     pre_n_states    1.189         0.600
+[    134s] true-zero check: mean dT among treated = 0.870 pp; mean dA = 0.169
+[    134s] main           baseline                           Stacked FE OLS (paper eq.5) theta= 0.1145 se=0.0581 t= 1.97 n=4307
+[    134s] main           baseline                           Stacked FE OLS + controls theta= 0.0749 se=0.0414 t= 1.81 n=4020
+[    134s] main           baseline                           Stacked FE OLS dose T (eq.7) theta= 0.0080 se=0.0173 t= 0.46 n=4307
+[    149s] main           overlap 0.05-0.95                  DML DR-DiD (auto)      theta= 0.1395 se=0.0810 t= 1.72 n=491
+[    149s] main           overlap 0.05-0.95                  OLS long-diff, X       theta= 0.0882 se=0.0547 t= 1.61 n=491
+[    161s] by_cohort      cohort 2006                        DML DR-DiD (auto)      theta= 0.0626 se=0.0803 t= 0.78 n=291
+[    161s] == EVENT STUDY ==
+[    284s] event study:
+ k   theta     se  n_units
+-5 -0.1167 0.1155    136.0
+-4 -0.0331 0.0962    255.0
+-3 -0.0130 0.0676    356.0
+-2  0.0468 0.0380    478.0
+-1  0.0000 0.0000      NaN
+ 0  0.0606 0.0469    561.0
+ 1 -0.0698 0.1331    510.0
+ 2  0.2175 0.1240    486.0
+ 3  0.3035 0.1004    458.0
+ 4  0.1720 0.0974    428.0
+[    284s] == ROBUSTNESS ==
+[    299s] robust         effective-date timing              DML DR-DiD (auto)      theta= 0.1797 se=0.1118 t= 1.61 n=550
+[    302s] robust         effective-date timing              DML PLR dose T (auto)  theta= 0.0179 se=0.0247 t= 0.73 n=550
+[    305s] robust         effective-date timing              DML PLR geo dose A (auto) theta= 0.1232 se=0.1422 t= 0.87 n=550
+[    316s] robust         drop TX, MI, NY                    DML DR-DiD (auto)      theta= 0.2824 se=0.1820 t= 1.55 n=52
+[    317s] robust         drop TX, MI, NY                    DML PLR dose T (auto)  theta= 0.0676 se=0.0414 t= 1.63 n=52
+[    317s] robust         drop TX, MI, NY                    DML PLR geo dose A (auto) theta= 0.6510 se=0.3714 t= 1.75 n=52
+[    330s] robust         drop 2007-09 cohorts (crisis)      DML DR-DiD (auto)      theta= 0.0659 se=0.0747 t= 0.88 n=446
+[    332s] robust         drop 2007-09 cohorts (crisis)      DML PLR dose T (auto)  theta=-0.0227 se=0.0197 t=-1.15 n=446
+[    334s] robust         drop 2007-09 cohorts (crisis)      DML PLR geo dose A (auto) theta=-0.1043 se=0.1394 t=-0.75 n=446
+[    350s] robust         outcome: spread in bps             DML DR-DiD (auto)      theta= 26.4253 se=41.2362 t= 0.64 n=587
+[    352s] robust         outcome: spread in bps             DML PLR dose T (auto)  theta=-5.6233 se=11.6112 t=-0.48 n=587
+[    355s] robust         outcome: spread in bps             DML PLR geo dose A (auto) theta= 18.3058 se=73.5766 t= 0.25 n=587
+[    371s] robust         pre-period spread in X             DML DR-DiD (auto)      theta= 0.1383 se=0.0800 t= 1.73 n=587
+[    374s] robust         pre-period spread in X             DML PLR dose T (auto)  theta=-0.0136 se=0.0169 t=-0.80 n=587
+[    378s] robust         pre-period spread in X             DML PLR geo dose A (auto) theta=-0.0767 se=0.1092 t=-0.70 n=587
+[    392s] robust         sample from 2005 (full TRACE)      DML DR-DiD (auto)      theta= 0.2419 se=0.1170 t= 2.07 n=499
+[    395s] robust         sample from 2005 (full TRACE)      DML PLR dose T (auto)  theta=-0.0046 se=0.0238 t=-0.19 n=499
+[    398s] robust         sample from 2005 (full TRACE)      DML PLR geo dose A (auto) theta= 0.0845 se=0.1355 t= 0.62 n=499
+[    413s] robust         threshold: treat>=5%, control<1%   DML DR-DiD (auto)      theta= 0.1370 se=0.0651 t= 2.10 n=509
+[    417s] robust         threshold: treat>=5%, control<1%   DML PLR dose T (auto)  theta=-0.0145 se=0.0201 t=-0.72 n=509
+[    420s] robust         threshold: treat>=5%, control<1%   DML PLR geo dose A (auto) theta=-0.0060 se=0.1392 t=-0.04 n=509
+[    436s] robust         threshold: treat>=10%, control<2%  DML DR-DiD (auto)      theta= 0.0839 se=0.0648 t= 1.29 n=494
+[    440s] robust         threshold: treat>=10%, control<2%  DML PLR dose T (auto)  theta=-0.0303 se=0.0235 t=-1.29 n=494
+[    444s] robust         threshold: treat>=10%, control<2%  DML PLR geo dose A (auto) theta=-0.1371 se=0.1483 t=-0.92 n=494
+[    462s] robust         year-by-year exposure (paper rules) DML DR-DiD (auto)      theta= 0.1544 se=0.0633 t= 2.44 n=536
+[    466s] robust         year-by-year exposure (paper rules) DML PLR dose T (auto)  theta= 0.0104 se=0.0203 t= 0.51 n=536
+[    470s] robust         year-by-year exposure (paper rules) DML PLR geo dose A (auto) theta= 0.1458 se=0.1367 t= 1.07 n=536
+[    470s] == HETEROGENEITY ==
+[    499s] het hi_spread     z=0  0.2559 (0.0991)  z=1 -0.0730 (0.0809)  diff -0.3289 t=-2.79
+[    528s] het loss_firm     z=0  0.1395 (0.0918)  z=1  0.1033 (0.0958)  diff -0.0361 t=-0.31
+[    556s] het big           z=0  0.0159 (0.0949)  z=1  0.2103 (0.0904)  diff  0.1944 t= 1.68
+[    585s] het rd_intensive  z=0  0.0385 (0.0847)  z=1  0.4059 (0.0843)  diff  0.3674 t= 3.49
+[    614s] het hi_roa_vol    z=0  0.0951 (0.0962)  z=1  0.2038 (0.0635)  diff  0.1087 t= 1.22
+[    642s] het hi_lev        z=0  0.1686 (0.0946)  z=1  0.0483 (0.0897)  diff -0.1202 t=-1.04
+[    671s] het multi_state   z=0  0.1544 (0.0648)  z=1  0.0474 (0.1196)  diff -0.1070 t=-0.85
+[    671s] == MECHANISM OUTCOMES ==
+[    686s] mechanism      outcome: roa_vol                   DML DR-DiD (auto)      theta=-0.0019 se=0.0057 t=-0.33 n=585
+[    702s] mechanism      outcome: book_lev                  DML DR-DiD (auto)      theta= 0.0030 se=0.0198 t= 0.15 n=587
+[    717s] mechanism      outcome: mkt_lev                   DML DR-DiD (auto)      theta= 0.0003 se=0.0274 t= 0.01 n=587
+[    732s] mechanism      outcome: loss                      DML DR-DiD (auto)      theta= 0.0184 se=0.0467 t= 0.39 n=587
+[    747s] mechanism      outcome: rd_at                     DML DR-DiD (auto)      theta= 0.0008 se=0.0005 t= 1.67 n=587
+[    747s] done.

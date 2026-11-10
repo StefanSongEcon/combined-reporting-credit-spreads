@@ -1,0 +1,15 @@
+# licensed or derived-from-licensed data (WRDS: TRACE, FISD, Compustat)
+firm_panel.csv
+gvkey_cik.csv
+gvkey_cik_spreadfirms.csv
+exposure_10k.csv
+results/stack_main.csv.gz
+results/propensity_main.csv
+# caches and raw downloads
+edgar_cache/
+raw_state/
+# logs
+results/*.log
+results/run_log.txt
+__pycache__/
+.DS_Store
