@@ -17,12 +17,11 @@ stacked difference-in-differences design estimated with double machine learning.
    stacked fixed-effects regression gives 0.115 log points (t = 2.0), and the doubly-robust DML estimator gives
    0.127.
 
-2. **Spreads rise from enactment and stay higher.** Excluding Texas, whose 2006 law also replaced its franchise tax
-   with the margin tax, pre-trends are flat. Spreads rise **0.13 log points in the year of enactment** (t = 2.3) and
+2. **Spreads rise from enactment and stay higher.** Pre-trends are flat. Spreads rise **0.13 log points in the year of enactment** (t = 2.3) and
    **0.27 two years later** (t = 2.7), then stay around 0.2 through year four. In the full sample the effect peaks at
    +0.30 (t = 3.0) in year three.
 
-3. **It is not Texas and not the financial crisis.**
+3. **Results are robust to exclusion of certain states (e.g. Texas) or financial crisis.**
    - Texas is two-thirds of the treated sample. Dropping it *raises* the estimate to **0.20 (t = 2.6)**.
    - Letting the 2008–09 crisis hit firms differently by pre-period credit risk and geographic breadth gives
      **0.145 (t = 2.8)**.
@@ -47,8 +46,7 @@ stacked difference-in-differences design estimated with double machine learning.
 
 ## What's under the hood
 
-- **State footprints from 24,000 10-Ks.** Establishment data (Data Axle) is replaced by an EDGAR pipeline. It
-  downloads every 10-K and annual-report exhibit for 1,364 bond issuers from 2000 to 2025. It reads state-by-state
+- **State footprints from 24,000 10-Ks.** We built a pipeline to download every 10-K and annual-report exhibit for 1,364 bond issuers from 2000 to 2025. It textually analyzes state-by-state
   unit tables where firms report them, and otherwise counts state names near operations language. Legal-context
   mentions and the filer's own name are masked first.
 - **Clean stacked comparisons.** Each adoption is its own experiment with a [−5, +4] window. Treated firms have no
