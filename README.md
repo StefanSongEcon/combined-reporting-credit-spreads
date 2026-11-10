@@ -1,4 +1,4 @@
-# Taxed Together: Combined Reporting and the Cost of Corporate Debt
+# Combined Reporting and the Cost of Corporate Debt: A Double Machine Learning Approach
 
 When a U.S. state switches to combined reporting, a corporate group is taxed on its consolidated income: shifting
 income to low-tax affiliates stops working, and losses in one affiliate offset profits in another. How do creditors perceive the effect of this tax reform on corporate debt burden? How this tax reform then affect corporate's cost of debt? This project measures how corporate bond spreads responded to the twelve
