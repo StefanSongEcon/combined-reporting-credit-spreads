@@ -36,7 +36,7 @@ stacked difference-in-differences design estimated with double machine learning.
 ![Event study excluding Texas](results/event_study_headline.png)
 
 *Effect of combined reporting on log credit spreads by year relative to enactment, excluding the Texas 2006 cohort
-(DML doubly-robust DiD, base year −1, 95% confidence intervals; 296 firm × cohort units).*
+(DML doubly-robust DiD, base year −1, 90% confidence intervals; 296 firm × cohort units).*
 
 ![Event study, all cohorts](results/event_study.png)
 

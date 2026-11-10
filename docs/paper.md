@@ -192,7 +192,7 @@ enactment. The effect then builds, reaching 0.22 log points in year two and 0.30
 ![Figure 1](../results/event_study.png)
 
 *Figure 1. DML doubly-robust event study. Effect on log credit spreads by year relative to enactment; base year −1;
-95 percent confidence intervals.*
+90 percent confidence intervals.*
 
 | Year | −5 | −4 | −3 | −2 | −1 | 0 | 1 | 2 | 3 | 4 |
 |---|---|---|---|---|---|---|---|---|---|---|

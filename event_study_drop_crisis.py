@@ -33,13 +33,13 @@ def main():
     ax.axhline(0, color="0.6", lw=0.8)
     ax.axvline(-0.5, color="0.6", lw=0.8, ls="--")
     off = 0.12
-    ax.errorbar(main_es.k - off, main_es.theta, yerr=1.96 * main_es.se, fmt="o", color="#9aa5b1",
+    ax.errorbar(main_es.k - off, main_es.theta, yerr=1.645 * main_es.se, fmt="o", color="#9aa5b1",
                 capsize=3, label="all cohorts (main)")
-    ax.errorbar(es.k + off, es.theta, yerr=1.96 * es.se, fmt="o", color="#1f4e79", capsize=3,
+    ax.errorbar(es.k + off, es.theta, yerr=1.645 * es.se, fmt="o", color="#1f4e79", capsize=3,
                 label="drop 2007-09 cohorts (MI, WV, MA, WI)")
     ax.set_xlabel("Years relative to enactment of combined reporting")
     ax.set_ylabel("ATT on log credit spread")
-    ax.set_title("DML DR-DiD event study, dropping 2007-09 cohorts (95% CI)")
+    ax.set_title("DML DR-DiD event study, dropping 2007-09 cohorts (90% CI)")
     ax.legend(frameon=False, fontsize=8, loc="upper left")
     fig.tight_layout()
     fig.savefig(ra.RES / "event_study_drop0709.png", dpi=180)

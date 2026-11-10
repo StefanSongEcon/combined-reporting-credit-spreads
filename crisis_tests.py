@@ -116,14 +116,14 @@ def main():
     for ax, (name, g) in zip(axes, es_all.groupby("spec", sort=False)):
         ax.axhline(0, color="0.6", lw=0.8)
         ax.axvline(-0.5, color="0.6", lw=0.8, ls="--")
-        ax.errorbar(main_es.k - 0.12, main_es.theta, yerr=1.96 * main_es.se, fmt="o", color="#9aa5b1",
+        ax.errorbar(main_es.k - 0.12, main_es.theta, yerr=1.645 * main_es.se, fmt="o", color="#9aa5b1",
                     capsize=3, ms=4, label="main (all cohorts)")
-        ax.errorbar(g.k + 0.12, g.theta, yerr=1.96 * g.se, fmt="o", color="#1f4e79", capsize=3, label=name[3:])
+        ax.errorbar(g.k + 0.12, g.theta, yerr=1.645 * g.se, fmt="o", color="#1f4e79", capsize=3, label=name[3:])
         ax.set_title(name, fontsize=10)
         ax.set_xlabel("Years relative to enactment")
         ax.legend(frameon=False, fontsize=7, loc="upper left")
     axes[0].set_ylabel("ATT on log credit spread")
-    fig.suptitle("Separating combined reporting from the 2008-09 crisis (DML DR-DiD, 95% CI)", fontsize=11)
+    fig.suptitle("Separating combined reporting from the 2008-09 crisis (DML DR-DiD, 90% CI)", fontsize=11)
     fig.tight_layout()
     fig.savefig(ra.RES / "crisis_event_studies.png", dpi=180)
     log("done")

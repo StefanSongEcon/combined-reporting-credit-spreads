@@ -22,10 +22,10 @@ def main():
     fig, ax = plt.subplots(figsize=(6.5, 3.8))
     ax.axhline(0, color="0.6", lw=0.8)
     ax.axvline(-0.5, color="0.6", lw=0.8, ls="--")
-    ax.errorbar(es.k, es.theta, yerr=1.96 * es.se, fmt="o", color="#1f4e79", capsize=3)
+    ax.errorbar(es.k, es.theta, yerr=1.645 * es.se, fmt="o", color="#1f4e79", capsize=3)
     ax.set_xlabel("Years relative to enactment of combined reporting")
     ax.set_ylabel("ATT on log credit spread")
-    ax.set_title("DML DR-DiD event study, excluding Texas (base year k = -1, 95% CI)", fontsize=11)
+    ax.set_title("DML DR-DiD event study, excluding Texas (base year k = -1, 90% CI)", fontsize=11)
     fig.tight_layout()
     fig.savefig(RES / "event_study_headline.png", dpi=180)
 
