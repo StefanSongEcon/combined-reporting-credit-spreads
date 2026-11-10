@@ -16,8 +16,10 @@ machine learning.
    stacked fixed-effects regression gives 0.115 log points (t = 2.0), and the doubly-robust DML estimator gives
    0.127.
 
-2. **The effect builds over three years.** Pre-trends are flat and spreads barely move at enactment. The effect grows
-   to **+0.30 log points (35%) three years later** (t = 3.0), as the new regime takes effect.
+2. **Spreads rise from enactment and stay higher.** Excluding Texas, whose 2006 law also replaced its franchise tax
+   with the margin tax, pre-trends are flat. Spreads rise **0.13 log points in the year of enactment** (t = 2.3) and
+   **0.27 two years later** (t = 2.7), then stay around 0.2 through year four. In the full sample the effect peaks at
+   +0.30 (t = 3.0) in year three.
 
 3. **It is not Texas and not the financial crisis.**
    - Texas is two-thirds of the treated sample. Dropping it *raises* the estimate to **0.20 (t = 2.6)**.
@@ -31,15 +33,14 @@ machine learning.
 5. **Machine learning aligns with the linear design.** Random forest, lasso and gradient boosting all land within 0.03 of
    the fixed-effects estimate, so the result does not depend on how controls enter.
 
-![Event study](results/event_study.png)
+![Event study excluding Texas](results/event_study_headline.png)
 
-*Effect of combined reporting on log credit spreads by year relative to enactment (DML doubly-robust DiD, base year
-−1, 95% confidence intervals).*
+*Effect of combined reporting on log credit spreads by year relative to enactment, excluding the Texas 2006 cohort
+(DML doubly-robust DiD, base year −1, 95% confidence intervals; 296 firm × cohort units).*
 
-![Texas and crisis tests](results/crisis_event_studies.png)
+![Event study, all cohorts](results/event_study.png)
 
-*The same event study excluding Texas (left), for cohorts adopted after the crisis (middle), and controlling for
-pre-period spread level (right); the main estimates are shown in grey.*
+*The same event study with all cohorts, including Texas (587 units).*
 
 ---
 
@@ -64,7 +65,8 @@ pre-period spread level (right); the main estimates are shown in grey.*
 | Outcome | Log credit spread: TRACE yield minus maturity-matched Treasury, firm-year |
 | Sample | 11,652 firm-years, 1,266 issuers, 2002–2025; 402 treated and 185 clean-control firm × cohort units |
 | Main estimate | +0.115 (stacked FE OLS), +0.127 (DML DR-DiD) log points |
-| Peak effect | +0.30 log points in year 3 |
+| Excluding Texas | +0.201 log points (DML DR-DiD, t = 2.6) |
+| Peak effect | +0.27 in year 2 excluding Texas; +0.30 in year 3 with all cohorts |
 
 ## Repository
 
@@ -81,6 +83,7 @@ build_firm_panel.py              spreads + Compustat controls (licensed inputs, 
 dml_cr.py                        stacking, long differences, DML estimators, stacked FE OLS
 run_analysis.py                  main estimates, event study, robustness, heterogeneity
 crisis_tests.py                  Texas and financial-crisis tests
+headline_figure.py               headline event study (excluding Texas)
 event_study_drop_crisis.py       event study without the 2007–09 cohorts
 placebo.py                       permutation test over adoption years
 test_synthetic.py                simulation check of the estimators
@@ -102,7 +105,7 @@ python3 edgar_state_exposure.py parse
 python3 edgar_state_exposure.py shares --link gvkey_cik.csv --out exposure_10k.csv
 python3 build_firm_panel.py
 OMP_NUM_THREADS=4 python3 -u run_analysis.py                    # ~13 minutes
-python3 -u crisis_tests.py && python3 -u placebo.py 100
+python3 -u crisis_tests.py && python3 headline_figure.py && python3 -u placebo.py 100
 ```
 
 `gvkey_cik.csv` maps Compustat `gvkey` to SEC `cik` (from `comp.funda`); `gvkey_cik_spreadfirms.csv` is its subset
